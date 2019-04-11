@@ -6,7 +6,7 @@ The cartoon https://xkcd.com/1970/ shows an example of a name domino.
 Used the Wikipedia to extract names of people and created the smallest possible name domino containing the maximum number of names extracted. 
 Note - The name should be a title of the Wikipedia article about this person.
 
-# Task to be done-
+# Project Goal
 Go to Wikipedia from Wikimedia dumps, https://dumps.wikimedia.org/enwiki/20181120/enwiki-20181120-pages-articles-multistream.xml.bz2 
 Decide whether a given title represents a name of a person.
 Run the script on Hadoop.
