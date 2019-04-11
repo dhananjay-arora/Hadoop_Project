@@ -36,9 +36,11 @@ I found the tag that I was looking for. All the pages with human titles had a ge
 
 This helped us to get all the names of the persons along with some junk data which I removed with the help of the sed command in Hadoop local file system.
 ●	Removed empty lines having spaces.
+
 ●	Removed unnecessary data like:
-○	Removed lines having ‘Categorical’ data in it, non-related to people names.
-○	Removed lines having ‘Wikipedia’ data in it, non-related to people names.
+
+	○	Removed lines having ‘Categorical’ data in it, non-related to people names.
+	○	Removed lines having ‘Wikipedia’ data in it, non-related to people names.
 ○	Removed lines having ‘Template’ data in it, non-related to people names.
 ○	Removed lines having ‘Portal’ data in it, non-related to people names.
 ○	Removed lines having ‘File’ data in it, non-related to people names.
