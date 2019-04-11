@@ -169,11 +169,12 @@ F-measure = 2 * (1*1) / (1+1) = 2/2 = 1
 
 
 ●	Count of the people names extracted from the “enwiki-20181120-pages-articles-multistream.xml.bz2” file provided is 275,000.
+
 ●	F measure is 1 i.e. 100 %. (as calculated in previous question)
 
 # Density of Domino
 
 I divided the domino into parts of 100px to 100px and measured the words in that diameter. 
 By taking random samples of 10 such diameters we got the density as:
-- The number of letters per square of the domino diameter is 8.44 letters per 100pixels diameter.
-- The density of letters goes as high as 14 -18 words per diameter and as low as 4 to 5 words.
+	- The number of letters per square of the domino diameter is 8.44 letters per 100pixels diameter.
+	- The density of letters goes as high as 14 -18 words per diameter and as low as 4 to 5 words.
