@@ -133,16 +133,16 @@ hadoop fs -cat final-layer-output/part-* > final_output.txt
 In the first map reduce we fetch similar words in the name. In the next mapper we just keep names which are highly common. We write the output of the map reduce to final_output.txt file
 As we have too many names for visualization, it is not feasible and sensible to use all the names for visualization. Hence, we use random 100 lines from final output and then filter the files accordingly.
 
-shuf -n 100 final_output.txt > names_list.txt
-module unload tensorflow/1.10-anaconda3
+- shuf -n 100 final_output.txt > names_list.txt
+- module unload tensorflow/1.10-anaconda3
 
-cat names_list.txt | python fetchNames.py > peoples_names_list.txt
-cat names_list.txt | python fetchSynset.py > synstring.txt
+- cat names_list.txt | python fetchNames.py > peoples_names_list.txt
+- cat names_list.txt | python fetchSynset.py > synstring.txt
 
 At the end of it we run the visualization code and the output is saved in visualization.png
 
-module load tensorflow/1.10-anaconda3
-python Domino.py 
+- module load tensorflow/1.10-anaconda3
+- python Domino.py 
 
 Output figure is being achieved in the form of an image “visualization.png”.
 Note: Code for Domino.py, fetchNames.py, fetchSynset.py, mapper.py, mapper2.py and reducer.py has been attached separately.
@@ -162,10 +162,10 @@ Checked the names that were in the final domino. The count of names is 91. Apart
 
 Here are the Precision, Recall and F-measure:
 
-TP = 291, FP = 0 , FN = 0, TN = 0
-Precision = 291/ (291+0) = 1
-Recall = 291/ (291+0) = 1
-F-measure = 2 * (1*1) / (1+1) = 2/2 = 1
+- TP = 291, FP = 0 , FN = 0, TN = 0
+- Precision = 291/ (291+0) = 1
+- Recall = 291/ (291+0) = 1
+- F-measure = 2 * (1*1) / (1+1) = 2/2 = 1
 
 
 ●	Count of the people names extracted from the “enwiki-20181120-pages-articles-multistream.xml.bz2” file provided is 275,000.
