@@ -41,13 +41,13 @@ This helped us to get all the names of the persons along with some junk data whi
 
 	○	Removed lines having ‘Categorical’ data in it, non-related to people names.
 	○	Removed lines having ‘Wikipedia’ data in it, non-related to people names.
-○	Removed lines having ‘Template’ data in it, non-related to people names.
-○	Removed lines having ‘Portal’ data in it, non-related to people names.
-○	Removed lines having ‘File’ data in it, non-related to people names.
-○	Removed special characters from the names.
-○	Removed Jr. and Sr. from the names.
-○	Removed numbers from the names.
-○	Removed the word “Draft:” from the names.	
+	○	Removed lines having ‘Template’ data in it, non-related to people names.
+	○	Removed lines having ‘Portal’ data in it, non-related to people names.
+	○	Removed lines having ‘File’ data in it, non-related to people names.
+	○	Removed special characters from the names.
+	○	Removed Jr. and Sr. from the names.
+	○	Removed numbers from the names.
+	○	Removed the word “Draft:” from the names.	
 ●	Copied all the data from Filtered List to a final file containing all names.
 
 # Algorithm to be run on Hadoop
@@ -55,23 +55,31 @@ This helped us to get all the names of the persons along with some junk data whi
 Came up with several filters to filter out the names of the person using Apache Pig on Hadoop File System.
 
 ●	Logged into Apache Pig using pig command.
+
 ●	Loaded the file to variable A using XMLLoader and splitting the XML by pages.
+
 Below is the command:
 A = LOAD '/user/darora2/Project/enwiki-20181120-pages-articles-multistream.xml' using org.apache.pig.piggybank.storage.XMLLoader('page') as (x:chararray);
+
 ●	Applied filter on the data with the help of XPath if text tag contains bio-stub in it.
 Below is the command:
 B = FOREACH A GENERATE XPath(x,'page/revision/text[contains(text(),"bio-stub")]/../../title') ;
+
 ●	Stored the names into Hadoop Local File System
 Below is the command:
 	STORE B into '/user/darora2/Project/Names' using PigStorage(';');
 ●	Came out of Apache Pig using the quit command.
+
 ●	Merged the 520 files generated having names to one file.
 Below is the command:
 	hadoop fs -getmerge  /user/darora2/Project/Names /users/darora2/Project/Name.txt
+
 ●	Removed empty lines having spaces using the following command:
 	awk 'NF' Name.txt > Names.txt
+
 ●	Checked the number of lines. Below is the command:
 wc -l Names.txt
+
 ●	Removed unnecessary data using the below commands:
 	sed "/Category/d" Names.txt > FilteredName1.txt
 sed "/Wikipedia/d" FilteredName1.txt > FilteredName2.txt
@@ -84,11 +92,15 @@ sed -e "s/Sr.//g" FilteredName7.txt > FilteredName8.txt
 sed -e "s/,.*$//" FilteredName8.txt > FilteredName9.txt
 sed -e "s/Draft://g" FilteredName9.txt > FilteredName10.txt
 sed "/[0-9]/d" FilteredName10.txt > FilteredName11.txt
+
 ●	Copied all the data from Filtered List to a final file. Below is the command:
 cp FilteredName11.txt People_Names_Final.txt
+
 ●	Checked the name count of names using word count command. Below is the command:
 	wc -l People_Names_Final.txt
+
 ●	Extracted the list of names using WinSCP.
+
 ●	Now, domino creation starts after sampling the data, ensuring cohesion of the name cluster.
 
 
