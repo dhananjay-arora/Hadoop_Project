@@ -35,6 +35,7 @@ The next step was to find look up for lesser known personalities and verify the 
 I found the tag that I was looking for. All the pages with human titles had a generic tag “bio-stub” and other specific pages had “US-bio-stub”, “Sports-bio-stub” and many more. But the bio-stub tag was generic for all human titled pages. So I used it for extracting titles of pages with human names as discussed in the next section.
 
 This helped us to get all the names of the persons along with some junk data which I removed with the help of the sed command in Hadoop local file system.
+
 ●	Removed empty lines having spaces.
 
 ●	Removed unnecessary data like:
@@ -68,6 +69,7 @@ B = FOREACH A GENERATE XPath(x,'page/revision/text[contains(text(),"bio-stub")]/
 ●	Stored the names into Hadoop Local File System
 Below is the command:
 	STORE B into '/user/darora2/Project/Names' using PigStorage(';');
+	
 ●	Came out of Apache Pig using the quit command.
 
 ●	Merged the 520 files generated having names to one file.
