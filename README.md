@@ -139,8 +139,8 @@ As we have too many names for visualization, it is not feasible and sensible to 
 - shuf -n 100 final_output.txt > names_list.txt
 - module unload tensorflow/1.10-anaconda3
 
-- cat names_list.txt | python fetchNames.py > peoples_names_list.txt
-- cat names_list.txt | python fetchSynset.py > synstring.txt
+- cat names_list.txt \| python fetchNames.py > peoples_names_list.txt
+- cat names_list.txt \| python fetchSynset.py > synstring.txt
 
 At the end of it we run the visualization code and the output is saved in visualization.png
 
