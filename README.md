@@ -49,6 +49,7 @@ This helped us to get all the names of the persons along with some junk data whi
 	○	Removed Jr. and Sr. from the names.
 	○	Removed numbers from the names.
 	○	Removed the word “Draft:” from the names.	
+	
 ●	Copied all the data from Filtered List to a final file containing all names.
 
 # Algorithm to be run on Hadoop
