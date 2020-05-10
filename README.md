@@ -61,26 +61,32 @@ Came up with several filters to filter out the names of the person using Apache 
 ●	Loaded the file to variable A using XMLLoader and splitting the XML by pages.
 
 Below is the command:
+
 	○	A = LOAD '/user/darora2/Project/enwiki-20181120-pages-articles-multistream.xml' using org.apache.pig.piggybank.storage.XMLLoader('page') as (x:chararray);
 
 ●	Applied filter on the data with the help of XPath if text tag contains bio-stub in it.
 Below is the command:
+
 	○	B = FOREACH A GENERATE XPath(x,'page/revision/text[contains(text(),"bio-stub")]/../../title') ;
 
 ●	Stored the names into Hadoop Local File System
 Below is the command:
+
 	○	STORE B into '/user/darora2/Project/Names' using PigStorage(';');
 	
-●	Came out of Apache Pig using the quit command.
+●	Came out of Apache Pig using the 'quit' command.
 
 ●	Merged the 520 files generated having names to one file.
 Below is the command:
+
 	○	hadoop fs -getmerge  /user/darora2/Project/Names /users/darora2/Project/Name.txt
 
 ●	Removed empty lines having spaces using the following command:
+
 	○	awk 'NF' Name.txt > Names.txt
 
 ●	Checked the number of lines. Below is the command:
+
 	○	wc -l Names.txt
 
 ●	Removed unnecessary data using the below commands:
@@ -97,9 +103,11 @@ Below is the command:
 - sed "/[0-9]/d" FilteredName10.txt > FilteredName11.txt
 
 ●	Copied all the data from Filtered List to a final file. Below is the command:
+
 	○	cp FilteredName11.txt People_Names_Final.txt
 
 ●	Checked the name count of names using word count command. Below is the command:
+
 	○	wc -l People_Names_Final.txt
 
 ●	Extracted the list of names using WinSCP.
